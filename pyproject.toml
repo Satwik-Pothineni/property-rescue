@@ -1,0 +1,22 @@
+[project]
+name = "property-rescue"
+version = "0.2.0"
+description = "Property Rescue maintenance API and Switch connectivity proof"
+requires-python = ">=3.13,<3.16"
+dependencies = [
+    "alembic==1.20.1",
+    "fastapi==0.162.0",
+    "mcp==2.3.0",
+    "psycopg[binary]==3.3.8",
+    "pydantic==2.14.2",
+    "sqlalchemy==2.1.8",
+    "uvicorn==0.54.0",
+]
+
+[tool.uv]
+package = false
+
+[dependency-groups]
+dev = [
+    "httpx2==2.16.0",
+]

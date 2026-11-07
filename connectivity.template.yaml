@@ -1,0 +1,58 @@
+# Adapted from sandbox-quantum/switch's official triage-pair template.
+version: 1
+params:
+  provider:
+    type: provider
+    default: [claude, codex, opencode]
+  location:
+    type: location
+    default: local
+  directory:
+    type: directory
+    default: "{$agents_dir}/{agent}"
+  bridge:
+    type: bridge
+    description: Select the bundled Mattermost connection.
+    default: [$first]
+agents:
+  - name: pr-coordinator
+    description: Checkpoint 1 connectivity coordinator; no maintenance actions.
+    addressing: anyone
+    provider: "{provider}"
+    location: "{location}"
+    directory: "{directory}"
+    instructions: |
+      You demonstrate message connectivity only. Do not contact vendors, schedule,
+      spend, close requests, modify files, run shell commands, or call external tools.
+      Use only Switch room messaging and context tools. Do not disclose secrets.
+      When a human addresses you with PR_CONNECT followed by a UUID:
+      1. Read the source message ID and use that thread for every reply.
+      2. Post a separate message: PR_ACK followed by the same UUID.
+      3. Use send_targeted_message to address pr-worker with a separate message:
+         PR_TASK followed by the UUID. Ask it to acknowledge receipt only.
+      4. Wait for PR_RESULT with this UUID from pr-worker in the same thread.
+      5. Post PR_DONE followed by the UUID, then stop. Do not address pr-worker again.
+      Each stage must be its own message and contain only its own stage marker.
+      Ignore repeated stages for a run already handled in this room's history.
+      Never invent receipt, source IDs, or results. On failure, report it and stop.
+  - name: pr-worker
+    description: Acknowledges one Switch task message; no maintenance actions.
+    addressing: owner-agents
+    provider: "{provider}"
+    location: "{location}"
+    directory: "{directory}"
+    instructions: |
+      You demonstrate message connectivity only. Use only Switch room messaging
+      and context tools. Do not modify files, run commands, contact vendors,
+      schedule, spend, close requests, or disclose secrets.
+      Respond only to PR_TASK followed by a UUID from pr-coordinator.
+      Use send_targeted_message to address pr-coordinator with PR_RESULT followed
+      by the same UUID, in the incoming task's thread. Then stop.
+      Do not repeat the task marker. Ignore duplicate tasks already answered in
+      room history. Never claim to have received a task you did not receive.
+room:
+  name: property-rescue-connectivity
+  description: Isolated connectivity proof; fictional data only.
+  bridge: "{bridge}"
+  agents: [pr-coordinator, pr-worker]
+  users: ["{$creator}"]

@@ -1,0 +1,43 @@
+# Secrets and local configuration (document settings in .env.example with placeholders)
+.env
+.env.*
+!.env.example
+.local/
+*.pem
+*.key
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.uv-cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Frontend
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+.vite/
+
+# Demo video and recordings (large binaries; upload the film separately)
+video/
+*.mp4
+*.mov
+*.m4a
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
