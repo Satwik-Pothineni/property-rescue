@@ -2,7 +2,7 @@
 
 **Track:** 01 — Best Business Workflow
 **One line:** A team of AI agents investigates rental maintenance problems with a human through Switch, and every consequential step waits for backend-verified human approval.
-**Repository:** _add public repo URL_ · **Demo video:** _add video URL_
+**Repository:** [github.com/Satwik-Pothineni/property-rescue](https://github.com/Satwik-Pothineni/property-rescue) · **Demo video:** [youtu.be/py_b3An0K7A](https://youtu.be/py_b3An0K7A)
 
 ## Description
 
@@ -55,6 +55,8 @@ and real Mattermost failure handling (bad token, unreachable). The latest run pa
 
 ## Honest limits
 
+The demo video's agent thread is the verified live run `3aafb708-fb03-4fcc-a2bb-dfaa460c8edd`
+(started with `INV_START`); the one-line `investigate` command shown starts the same agents and workflow.
 Fictional data only (DoorLoop deferred). Vendor, calendar and payment execution is a
 labelled fictional adapter. Agents cannot call the API; a human relays the brief and
 syncs the report with a button. Local demo authentication only.
@@ -67,7 +69,7 @@ syncs the report with a button. Local demo authentication only.
 | A team-chat workflow where at least one agent and one person complete a real task through Switch | Live three-agent investigation in Mattermost, started and reviewed by a human |
 | Switch setup and agent workflow built during Nov 4–7 | Earliest project file Nov 4 08:41 IST; Switch stack Nov 4 09:20 IST; investigation template and live run Nov 7 ≈02:30–02:45 IST |
 | Reproducible from a clone | Clean copy of the repo files: `uv sync --locked`, 59 tests, `npm ci`, 11 tests, build all passed |
-| Demo video showing Switch use | **To record** — script in `DEMO.md` |
+| Demo video showing Switch use | https://youtu.be/py_b3An0K7A |
 | Submit by Nov 7, 11:59 PM IST (1:29 PM EST) | **Pending** — needs a public repository and the submission form |
 | AI use permitted; entrant understands the work | Architecture and decisions documented in README and PROGRESS.md |
 | Original work; complies with third-party licenses | Dependencies pinned in `uv.lock` / `package-lock.json`; no license chosen for this repo yet (entrant's decision) |

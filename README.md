@@ -10,6 +10,8 @@ verifies a valid approval.
 Built for the Flip the Switch hackathon (Nov 4–7, 2026), Track 01: Business
 Workflow. All people, properties, vendors and costs are fictional.
 
+**Demo video:** https://youtu.be/py_b3An0K7A
+
 ## How Switch is used
 
 The investigation is the **real task that a person and AI agents complete
